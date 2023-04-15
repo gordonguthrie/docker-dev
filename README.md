@@ -27,6 +27,7 @@ Jobs a good un
 
 If you want to use this for multiple Elixir repos then there will be name clashes which you need to fix:
 
-* the container in `scripts/start_devenv.sh` will have the wrong name
-* the mounted directory `target/` in `docker-compose.yml` will be wrong
+* you will need to edit the service name in `docker-compose.yml`
+* the means the container in `scripts/start_devenv.sh` will have the wrong name
+* the mounted directory `target/` in `docker-compose.yml` will need to be edited too, as per a singe use 
 
