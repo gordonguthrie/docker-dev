@@ -40,12 +40,5 @@ RUN mix local.hex --force
 RUN mix archive.install hex phx_new 1.8.7 --force
 RUN mix local.rebar --force
 
-# Write an entrypoint that injects test hostnames into /etc/hosts at runtime,
-# then hands off to the CMD.  /etc/hosts is a bind-mount so it can only be
-# written at container start, not during image build.
-COPY docker/entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
-ENTRYPOINT ["/entrypoint.sh"]
 #CMD ["/bin/bash"]
 CMD ["tail", "-f", "/dev/null"]
