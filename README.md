@@ -19,10 +19,6 @@ Jobs a good un
 * start the container with `docker-compose up`
 * leave running in the shell, switch to a new shell and run `./scripts/start_devenv.sh` this will connect you to a shell inside the development environment
 
-# How to use on a repo that you which to check GitHub documents generated with Jekyll on
-
-* copy the files in `priv/` into your `docs/` directory
-
 # How to use multiple times
 
 If you want to use this for multiple Elixir repos then there will be name clashes which you need to fix:
@@ -31,3 +27,13 @@ If you want to use this for multiple Elixir repos then there will be name clashe
 * the means the container in `scripts/start_devenv.sh` will have the wrong name
 * the mounted directory `target/` in `docker-compose.yml` will need to be edited too, as per a singe use 
 
+# Configuring Elixir
+
+First change the name of the db in `config/dev.exs` to `db`
+
+```
+mix phx.new app_name
+mix deps.get
+mix ecto.create
+iex -S mix phx.server
+```
